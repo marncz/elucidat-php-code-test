@@ -167,36 +167,54 @@ class GuildedRoseTest extends TestCase
             /**
              * Conjured items
              */
-            // 'conjured item before sell date' => [
-            //     'item' => new Item('Conjured Mana Cake', 10, 10),
-            //     'expectedQuality' => 8,
-            //     'expectedSellIn' => 9,
-            // ],
-            // 'conjured item at zero quality' => [
-            //     'item' => new Item('Conjured Mana Cake', 0, 10),
-            //     'expectedQuality' => 0,
-            //     'expectedSellIn' => 9,
-            // ],
-            // 'conjured item on sell date' => [
-            //     'item' => new Item('Conjured Mana Cake', 10, 0),
-            //     'expectedQuality' => 6,
-            //     'expectedSellIn' => -1,
-            // ],
-            // 'conjured item on sell date at zero quality' => [
-            //     'item' => new Item('Conjured Mana Cake', 0, 0),
-            //     'expectedQuality' => 0,
-            //     'expectedSellIn' => -1,
-            // ],
-            // 'conjured item after sell date' => [
-            //     'item' => new Item('Conjured Mana Cake', 10, -10),
-            //     'expectedQuality' => 6,
-            //     'expectedSellIn' => -11,
-            // ],
-            // 'conjured item after sell date at zero quality' => [
-            //     'item' => new Item('Conjured Mana Cake', 0, -10),
-            //     'expectedQuality' => 0,
-            //     'expectedSellIn' => -11,
-            // ],
+            'conjured item before sell date' => [
+                'item' => new Item('Conjured Mana Cake', 10, 10),
+                'expectedQuality' => 8,
+                'expectedSellIn' => 9,
+            ],
+            'conjured item at zero quality' => [
+                'item' => new Item('Conjured Mana Cake', 0, 10),
+                'expectedQuality' => 0,
+                'expectedSellIn' => 9,
+            ],
+            'conjured item on sell date' => [
+                'item' => new Item('Conjured Mana Cake', 10, 0),
+                'expectedQuality' => 6,
+                'expectedSellIn' => -1,
+            ],
+            'conjured item on sell date at zero quality' => [
+                'item' => new Item('Conjured Mana Cake', 0, 0),
+                'expectedQuality' => 0,
+                'expectedSellIn' => -1,
+            ],
+            'conjured item after sell date' => [
+                'item' => new Item('Conjured Mana Cake', 10, -10),
+                'expectedQuality' => 6,
+                'expectedSellIn' => -11,
+            ],
+            'conjured item after sell date at zero quality' => [
+                'item' => new Item('Conjured Mana Cake', 0, -10),
+                'expectedQuality' => 0,
+                'expectedSellIn' => -11,
+            ],
+       
+
+            // Custom tests
+            'normal item with quality of 52 (over the max)' => [
+                'item' => new Item('normal', 52, 5),
+                'expectedQuality' => 50,
+                'expectedSellIn' => 4,
+            ],
+            'normal item with negative quality' => [
+                'item' => new Item('normal', -5, 6),
+                'expectedQuality' => 0,
+                'expectedSellIn' => 5,
+            ],
+            'normal item with negavite sellIn' => [
+                'item' => new Item('normal', 10, -6),
+                'expectedQuality' => 8,
+                'expectedSellIn' => -7,
+            ],
         ];
     }
 }
